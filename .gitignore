@@ -1,0 +1,68 @@
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.code-workspace
+
+# =========================
+# Composer
+# =========================
+vendor/
+
+# Uncomment if you don't want to commit composer.lock
+# composer.lock
+
+# =========================
+# Environment & Secrets
+# =========================
+.env
+.env.*
+config.local.php
+
+# Google OAuth Client Secret
+client_secret_*.json
+client_secret_*.txt
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+*.tmp
+
+# =========================
+# Uploads
+# Keep the folder but ignore uploaded files
+# =========================
+uploads/*
+!uploads/.gitkeep
+
+# =========================
+# Cache / Sessions
+# =========================
+cache/
+tmp/
+sessions/
+
+# =========================
+# Runtime Files
+# =========================
+*.pid
+*.seed
+
+# =========================
+# PHP
+# =========================
+.phpunit.result.cache
+
+# =========================
+# XAMPP
+# =========================
+xampp/

@@ -1,0 +1,549 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  background-color: black;
+  overflow-x: hidden;
+
+  /* header */
+  font-family: "Montserrat", sans-serif;
+  background: #000000;
+  color: #fff;
+  width: 100%;
+  overflow-x: hidden; 
+  /* header */
+}
+
+:root {
+  --neon-orange: #c55b20;
+  --neon-gold: #c55b20;
+  --font-p: "Unbounded", Sans-serif;
+  --col: #fff;
+}
+
+
+/* ================= CURSOR ================= */
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #ff7a00;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px #ff7a00;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(255, 122, 0, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  
+}
+
+/* Mobile me disable */
+@media(max-width:768px) {
+
+  .cursor,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* .cursor, end */
+
+
+/* --- HEADER --- */
+
+
+
+
+
+/* bannert */
+.container {
+  width: 96%;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  /* font-family:Anton, sans-serif; */
+  margin-top: 60px;
+  flex: 1;
+  padding-bottom: 100px;
+}
+
+/* --- Banner Style --- */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 1000px;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(255, 122, 0, 0.15);
+  text-align: center;
+  margin-bottom: 40px;
+  height: 340px !important;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: conic-gradient(transparent,
+      var(--neon-orange),
+      transparent,
+      var(--neon-gold),
+      transparent);
+  animation: rotateBorder 5s linear infinite;
+  z-index: 1;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #111111;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+@keyframes rotateBorder {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Emoji Animation */
+.emoji-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.emoji {
+  position: absolute;
+  bottom: -60px;
+  font-size: 2rem;
+  opacity: 0;
+  filter: drop-shadow(0 0 10px var(--neon-orange));
+  animation: moveUp 7s linear infinite;
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.6;
+  }
+
+  80% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-500px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.e1 {
+  left: 5%;
+  animation-duration: 8s;
+}
+
+.e2 {
+  left: 15%;
+  animation-duration: 6s;
+  animation-delay: 2s;
+}
+
+.e3 {
+  right: 15%;
+  animation-duration: 9s;
+  animation-delay: 1s;
+}
+
+.e4 {
+  right: 5%;
+  animation-duration: 7s;
+  animation-delay: 3s;
+}
+
+/* Center Content */
+.content {
+  position: relative;
+  z-index: 10;
+  padding: 20px;
+}
+
+.game-heading-group {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-heading {
+  font-family: "Arial Black", sans-serif;
+  font-size: clamp(50px, 12vw, 80px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.85em;
+  margin: 0;
+  padding: 0;
+}
+
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #ffffff;
+}
+
+.text-solid {
+  color: #ffffff;
+  /* font-size: 90px; */
+  text-shadow: 0 0 30px rgba(255, 122, 0, 0.6);
+  animation: simple-glitch 1s linear infinite;
+}
+
+@keyframes simple-glitch {
+
+  0%,
+  100% {
+    transform: skew(0deg);
+    text-shadow:
+      4px 4px 0 var(--neon-orange),
+      0 0 30px rgba(255, 122, 0, 0.5);
+  }
+
+  20%,
+  60% {
+    transform: skew(-2deg);
+    text-shadow:
+      -2px 0 var(--neon-orange),
+      2px 2px white;
+  }
+}
+
+/* banner end */
+
+
+/* --- Custom Search Bar --- */
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #000;
+  border-radius: 50px;
+  padding: 0 22px;
+  /* width: 420px; */
+  width: 600px;
+  max-width: 90%;
+  height: 60px;
+  box-shadow: 0 0 10px var(--neon-orange);
+  border: 1px solid rgba(255, 122, 0, 0.5);
+  transition: 0.3s ease;
+}
+
+.search-bar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.search-bar:focus-within {
+  box-shadow: 0 0 30px var(--neon-orange);
+  transform: scale(1.03);
+  border: 1px solid var(--neon-orange);
+}
+
+.search-bar button {
+  background: transparent;
+  border: none;
+  color: var(--neon-orange);
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* search end */
+
+
+/* --- 4Column Layout --- */
+.grid-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+/* --- Column Card (Updated for Image Overlay) --- */
+.column-card {
+  position: relative;
+  color: white;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+  /* Elements ko hide karne ke liye */
+  border-radius: 20px;
+  border: 1px solid rgba(255, 122, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+
+  /* Height fix taaki image set rahe */
+  height: 350px;
+  padding: 0;
+  /* Padding content area mein shift ki hai */
+}
+
+/* Card Hover Effects (Unchanged Tilt & Glow) */
+.column-card:hover {
+  transform: rotateY(5deg) rotateX(2deg) translateY(-10px);
+  border-color: rgba(255, 122, 0, 0.6);
+  box-shadow: 0 20px 40px rgba(255, 122, 0, 0.2);
+}
+
+/* --- FULL COLUMN IMAGE (NEW) --- */
+.card-img {
+  width: 100%;
+  height: 100%;
+  /* Poora card cover karega */
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* Sabse niche */
+  transition: 0.6s ease;
+}
+
+/* Image zoom on hover (Unchanged) */
+.column-card:hover .card-img {
+  transform: scale(1.1);
+}
+
+/* Subtle gradient overlay on image for text readability */
+.column-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  z-index: 2;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.column-card:hover::after {
+  opacity: 1;
+}
+
+/* --- CONTENT AREA (Animated Elements) --- */
+.card-content {
+  position: absolute;
+  bottom: 30px;
+  /* Text kahan dikhega */
+  left: 30px;
+  right: 30px;
+  z-index: 10;
+  text-align: left;
+
+  /* Animation Logic */
+  transform: translateY(100px);
+  /* Niche hide rahega */
+  opacity: 0;
+  /* Chupa rahega */
+  transition:
+    transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 0.5s ease;
+}
+
+/* Show text on card hover */
+.column-card:hover .card-content {
+  transform: translateY(0);
+  /* Apni jagah par aayega */
+  opacity: 1;
+}
+
+/* Card Title (Unchanged Style, but nested in content) */
+.column-card h3 {
+  color: var(--neon-orange);
+  margin: 0 0 15px 0;
+  font-size: 1.6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow:
+    3px 3px 0px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(255, 122, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Dot accent (Unchanged) */
+.column-card h3::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: var(--neon-orange);
+  display: inline-block;
+  box-shadow: 0 0 12px var(--neon-orange);
+}
+
+/* Paragraph (Unchanged style, nested) */
+.column-card p {
+  color: #aaaaaa;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  font-family: Arial, sans-serif;
+}
+
+/* Stylish Underline Link (Unchanged Style) */
+
+.card-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  position: relative;
+
+  /* Button Shape & Background */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  /* Height ki jagah padding use karein */
+  margin-bottom: 20px;
+
+  /* Background Image Settings */
+  /* background-image: url("assets/img/btn-bg.png"); */
+  background-size: 100% 100%;
+  /* Image ko button ke poore area mein kheench dega */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  /* Taki default color piche na dikhe */
+
+  transition: 0.3s ease;
+  min-width: 180px;
+  /* Ek minimum width set karein */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  /* Text ko readable banane ke liye */
+}
+
+/* Hover effect for gaming feel */
+
+
+
+/* Top Glow Border Animation (Unchanged) */
+.column-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--neon-orange),
+      transparent);
+  transition: 1.6s ease;
+  z-index: 15;
+}
+
+.banner-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 80px;
+  /* background: var(--neon-orange); */
+  color: white;
+  text-decoration: none;
+  font-family: var(--font-p);
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  transition: 0.4s ease;
+  /* border: 2px solid var(--neon-orange); */
+  /* box-shadow: 0 0 20px rgba(255, 122, 0, 0.3); */
+  position: relative;
+  z-index: 20;
+  background-image: url("assets/img/img3.png");
+  background-size: contain;
+}
+
+
+
+.column-card:hover::before {
+  left: 100%;
+}
+
+@media (max-width: 900px) {
+  .grid-section {
+    grid-template-columns: 1fr;
+  }
+
+  .banner {
+    height: 280px;
+  }
+}
+
+@media (max-width: 430px) {
+  .card-img {
+    object-fit: contain;
+  }
+}
+
+/* 4 col end */

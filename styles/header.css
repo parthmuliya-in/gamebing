@@ -1,0 +1,489 @@
+/* ================= CURSOR ================= */
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #ff7a00;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px #ff7a00;
+  z-index: 9999;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(255, 122, 0, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  background: #000000;
+  border-bottom: 1px solid #222;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* BASE BORDER */
+header::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #333;
+}
+
+/* Orange RUNNING LINE */
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -20%;
+  width: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c55b20, transparent);
+  animation: goldRun 3s linear infinite;
+}
+
+@keyframes goldRun {
+  0% {
+    left: -20%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* LOGO */
+.logo {
+  font-family: 'Anton', sans-serif;
+  color: #c55b20;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 120px;
+  height: 55px;
+}
+
+.logo:hover {
+  text-shadow: 0 0 8px #c55b20;
+}
+
+.logo video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* NAV */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #c55b20;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+
+/* HOVER EFFECT */
+nav ul li a:hover {
+  color: #c55b20;
+  font-weight: 800;
+  transform: scale(1.08);
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  nav ul {
+    position: fixed;
+    top: 65px;
+    right: -100%;
+    background: #111;
+    height: 100vh;
+    width: 220px;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-top: 50px;
+    transition: 0.3s;
+  }
+
+  nav ul.show {
+    right: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/*********************************************** header end  **********************************************************/
+
+
+/************************************************** footer start  *****************************************************/
+
+:root {
+  --neon-orange: #ff7a00;
+  --neon-gold: #c55b20;
+  --font-p: "Unbounded", Sans-serif;
+  --col: #fff;
+  --pure-black: #000000;
+}
+
+body {
+  margin: 0;
+  background: #111;
+  /* Just for contrast */
+}
+
+.gaming-site-footer {
+  position: relative;
+  padding: 50px 10% 30px;
+  background: var(--pure-black);
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  border-top: 1px solid rgba(255, 122, 0, 0.2);
+  color: #fff;
+  margin-top: 50px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.gaming-site-footer::before {
+  content: "GAMING ZONE";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14vw;
+  font-weight: 800;
+  color: rgba(255, 122, 0, 0.04);
+  z-index: 0;
+  letter-spacing: -2px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* Neon Animated Lines */
+.footer-line-anim {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-orange), transparent);
+  box-shadow: 0 0 15px var(--neon-orange);
+  left: 0;
+}
+
+.f-line-top {
+  top: 0;
+  animation: fGlowLine 4s infinite alternate;
+}
+
+.f-line-bottom {
+  bottom: 0;
+  animation: fGlowLine 4s infinite alternate-reverse;
+}
+
+@keyframes fGlowLine {
+  0% {
+    opacity: 0.3;
+    transform: scaleX(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Neon Dots Animation */
+.f-neon-dot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff, 0 0 20px var(--neon-orange);
+  z-index: 2;
+}
+
+.f-top-dot {
+  top: -3px;
+  animation: fMoveLeft 15s linear infinite;
+}
+
+.f-bottom-dot {
+  bottom: -3px;
+  animation: fMoveRight 15s linear infinite;
+}
+
+@keyframes fMoveLeft {
+  0% {
+    left: 110%;
+  }
+
+  100% {
+    left: -10%;
+  }
+}
+
+@keyframes fMoveRight {
+  0% {
+    left: -10%;
+  }
+
+  100% {
+    left: 110%;
+  }
+}
+
+/* GRID - Equal Columns & Alignment */
+.f-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 4 barabar columns */
+  gap: 40px;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+  /* Sabko top se ek line mein rakhega */
+}
+
+/* Typography & Headings */
+.gaming-site-footer h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0 0 25px 0;
+  /* Top margin 0 kar diya taki sab ek line mai aayein */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.gaming-site-footer h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--neon-orange);
+}
+
+/* Lists and Links alignment */
+.gaming-site-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gaming-site-footer ul li {
+  /* margin: 0 0 15px 0; */
+  display: flex;
+  align-items: center;
+  /* Icons aur text ko sidha rakhega */
+}
+
+.gaming-site-footer ul li a,
+.gaming-site-footer ul li {
+  color: whitesmoke;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.gaming-site-footer ul li a:hover {
+  color: var(--neon-orange);
+  padding-left: 8px;
+}
+
+.gaming-site-footer ul li i {
+  color: var(--neon-orange);
+  margin-right: 12px;
+  font-size: 16px;
+  width: 20px;
+  /* Icons ko ek hi width dega jisse text perfectly align ho */
+  text-align: center;
+}
+
+/* First Column (Logo & Social) */
+.f-col-center {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* align-items: flex-start; */
+  justify-content: space-between;
+}
+
+.f-col-center-logo {
+  height: 200px;
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.f-video-logo {
+  height: 90px;
+  width: auto;
+  margin-bottom: 15px;
+  margin-top: -10px;
+  /* Thoda adjust kiya taki H3 ke level pe aye */
+}
+
+.logo-text {
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Social Buttons */
+.f-social-wrap {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.f-social-wrap a {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #111;
+  border: 1px solid #222;
+  color: var(--col);
+  transition: 0.4s;
+  text-decoration: none;
+}
+
+.f-social-wrap a:hover {
+  background: var(--neon-orange);
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--neon-orange);
+  color: #000;
+}
+
+/* Bottom Bar */
+.f-bottom-bar {
+  position: relative;
+  z-index: 1;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive Breakpoints */
+
+/* Tablet View */
+@media (max-width: 992px) {
+  .f-grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 Columns */
+    row-gap: 50px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 700px) {
+  .f-grid {
+    grid-template-columns: 1fr;
+    /* 1 Column */
+    text-align: center;
+    gap: 40px;
+  }
+
+  .f-col-center-logo {
+  align-items: center;
+}
+  .f-col-center {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .gaming-site-footer h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .gaming-site-footer ul li {
+    justify-content: center;
+    /* Mobile mein list items center honge */
+  }
+
+  .gaming-site-footer ul li i {
+    margin-right: 8px;
+    /* Center layout ke liye icon spacing kam ki */
+  }
+}

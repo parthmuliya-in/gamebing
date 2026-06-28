@@ -1,0 +1,7 @@
+{
+    "require": {
+        "stichoza/google-translate-php": "^5.3",
+        "google/apiclient": "2.13",
+        "phpoffice/phpspreadsheet": "^5.2"
+    }
+}
